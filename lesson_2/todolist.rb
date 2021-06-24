@@ -152,3 +152,18 @@ class TodoList
     each { |todo| todo.undone! }
   end
 end
+
+item1 = Todo.new('oh')
+item2 = Todo.new('hi')
+item3 = Todo.new('mark')
+
+list = TodoList.new('list')
+
+list << item1
+list << item2
+list << item3
+
+item1.done!
+
+p list.all_done
+list.all_not_done
