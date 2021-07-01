@@ -74,7 +74,7 @@ class DNA
   end
 
   def hamming_distance(new_strand)
-    @strand.length <= new_strand.length ? short = @strand : short = new_strand
+    short = @strand.length <= new_strand.length ? @strand : new_strand
     distance = 0
     short.length.times { |i| distance += 1 if @strand[i] != new_strand[i] }
     distance
