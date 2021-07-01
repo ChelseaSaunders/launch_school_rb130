@@ -54,7 +54,7 @@ ALGORITHM
 - assign that value to @word, and make @word readable
 - create constant hash LETTER_SCORES that includes values as scores, and array
   of letters for that score as keys
-- create class method score
+- create instance method score
   - create variable score and assign to 0
   - return score if @word.nil?
   - uppercase word, split into array of characters, assign to chars_arr

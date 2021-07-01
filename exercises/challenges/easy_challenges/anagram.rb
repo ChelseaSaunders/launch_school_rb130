@@ -25,7 +25,7 @@ Output for method: array of strings (subset of method input array)
 ALGORITHM
 - Create class Anagram that takes one string as an argument upon initialization,
   and assign to @string
-- create class method, match that takes an array of sunstrings as an argument
+- create instance method, match that takes an array of sunstrings as an argument
   - select from that array only substrings that, when sorted and lowercase,
     match the @string, when sorted and lowercase, AND, when lowercase do not
     match @string lowercase.

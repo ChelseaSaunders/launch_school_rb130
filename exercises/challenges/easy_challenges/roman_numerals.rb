@@ -75,11 +75,11 @@ ALGORITHM
 - create constants with arrays for each possible value for thousands, hundreds,
   tens, and ones
 
-- create convert_numbers method that takes a digit and one of the value arrays
+- create convert_numbers instance method that takes a digit and one of the value arrays
   as an argument, and converts the digit to the appropriate combination of
   characters from the value array, based on the value of the digits
 
-- create to_roman method
+- create to_roman instance method
   iterate through digits using digit as parameter
   create a case statement for digit
   skip if digit is 0
