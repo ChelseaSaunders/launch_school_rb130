@@ -75,9 +75,9 @@ ALGORITHM
 - create constants with arrays for each possible value for thousands, hundreds,
   tens, and ones
 
-- create convert_numbers method that takes a digit and one of the value arrays as an
-  argument, and converts the digit to the appropriate combination of characters
-  from the value array, based on the value of the digits
+- create convert_numbers method that takes a digit and one of the value arrays
+  as an argument, and converts the digit to the appropriate combination of
+  characters from the value array, based on the value of the digits
 
 - create to_roman method
   iterate through digits using digit as parameter
@@ -94,12 +94,12 @@ class RomanNumeral
   end
 
   def generate_non_zero_digits
-    @thousands = number / 1000
-    @hundreds = number % 1000 / 100
-    @tens = number % 100 / 10
-    @ones = number % 10
+    thousands = number / 1000
+    hundreds = number % 1000 / 100
+    tens = number % 100 / 10
+    ones = number % 10
 
-    [thousands, hundreds, tens, ones].select { |num| num != 0 && !num.nil? }
+    [thousands, hundreds, tens, ones].map { |num| num.nil? ? 0 : num }
   end
 
   NUMBERS_FOR_THOUSANDS = ['M']           # 3000
@@ -111,6 +111,8 @@ class RomanNumeral
     roman_numbers = ''
 
     case numbers
+    when 0
+      ''
     when (1..3)
       numbers.times { roman_numbers << array[0] }
     when 4
@@ -118,7 +120,7 @@ class RomanNumeral
     when (5..8)
       roman_numbers << array[1]
       (numbers - 5).times { roman_numbers << array[0] }
-    else
+    when 9
       roman_numbers.concat(array[0], array[2])
     end
 
@@ -129,15 +131,15 @@ class RomanNumeral
     digits = generate_non_zero_digits
     roman_numerals = ''
 
-    digits.each do |digit|
-      case digit
-      when thousands
+    digits.each_with_index do |digit, index|
+      case index
+      when 0
         roman_numerals << convert_numbers(digit, NUMBERS_FOR_THOUSANDS)
-      when hundreds
+      when 1
         roman_numerals << convert_numbers(digit, NUMBERS_FOR_HUNDREDS)
-      when tens
+      when 2
         roman_numerals << convert_numbers(digit, NUMBERS_FOR_TENS)
-      when ones
+      when 3
         roman_numerals << convert_numbers(digit, NUMBERS_FOR_ONES)
       end
     end
@@ -145,10 +147,3 @@ class RomanNumeral
     roman_numerals
   end
 end
-
-# number911 = RomanNumeral.new(911)
-# number141 = RomanNumeral.new(141)
-# number575 = RomanNumeral.new(575)
-# p number911.to_roman
-# p number141.to_roman
-# p number575.to_roman
