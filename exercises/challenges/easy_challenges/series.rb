@@ -38,14 +38,13 @@ ALGORITHM
   - create empty array slice_arr
   - assign digit_ints to digits, split into an array of characters and converted
     to integers
-  - iterate through digit_ints with index, using _, idx as parameters
-    - break if index += num is equal to or greater than digits.length
-    - add [idx..idx + num] to slice_arr
+  - iterate through digit_ints, the length of the digits string, minus (num-1)
+    times, using idx as parameter
+    - add digit_ints[idx..idx + num] to slice_arr
 
   -return slice array
 
 =end
-
 
 class Series
   attr_reader :digits
@@ -59,8 +58,8 @@ class Series
     slice_arr =[]
     digit_ints = digits.split('').map(&:to_i)
 
-    (digit.length - num).times do |idx|
-      slice_arr << [[digits[idx]..digits[idx + num]]
+    (digit_ints.length - (num - 1)).times do |idx|
+      slice_arr << digit_ints[idx..idx + (num - 1)]
     end
 
     slice_arr
@@ -68,5 +67,3 @@ class Series
 end
 
 numbers = Series.new('1234')
-
-p numbers.slices(2)
