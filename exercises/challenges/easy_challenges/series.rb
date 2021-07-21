@@ -55,7 +55,7 @@ class Series
 
   def slices(num)
     raise ArgumentError if num > digits.length
-    slice_arr =[]
+    slice_arr = []
     digit_ints = digits.split('').map(&:to_i)
 
     (digit_ints.length - (num - 1)).times do |idx|
@@ -65,5 +65,3 @@ class Series
     slice_arr
   end
 end
-
-numbers = Series.new('1234')

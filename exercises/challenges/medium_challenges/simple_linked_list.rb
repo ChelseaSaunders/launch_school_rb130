@@ -24,3 +24,66 @@ DATA
 ALGORITHM
 
 =end
+
+class SimpleLinkedList
+  attr_accessor @list
+
+  def initialize
+    @list = []
+  end
+
+  def size
+
+  end
+
+  def empty?
+
+  end
+
+  def push(num)
+  #instance of element
+
+  end
+
+  def peek
+    list[0]
+  end
+
+  def head
+    #first item in list?
+  end
+
+  def pop
+    list.pop
+  end
+
+  def from_a(new_list)
+    new_list.nil? ? self.list = [nil] : self.list = new_list
+  end
+
+  def to_a
+    list
+  end
+
+  def reverse
+    list.reverse
+  end
+end
+
+class Element
+  def initialize(num)
+    @num = num
+  end
+
+  def datum
+
+  end
+
+  def tail?
+
+  end
+
+  def next
+
+  end
+end
